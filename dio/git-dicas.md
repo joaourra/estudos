@@ -16,7 +16,7 @@ mv TAB... (move o arquivo ou pasta)
 git config --list (lista de configurações)
 git config --global user.name "..." 
 
-git add * "..." (modified para stagy
+git add * "..." (modified para stagy)(ou git add .)
 git commit -m "mensagem" (resolve conflitos..)
 
 git remote add origin "https://...." (salva origin link do gitHub)
