@@ -1,0 +1,540 @@
+<style>
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #cd1919de;
+  --main-blue: #45567d;
+  --main-gray: #303841;
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+h1,
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* nav */
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--main-red);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+  .nav {
+    justify-content: center;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+}
+
+.nav-list a:hover {
+  background: var(--main-blue);
+}
+
+/* Welcome section */
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: url(https://scontent.fcgh17-1.fna.fbcdn.net/v/t1.6435-9/107895865_10221305531041729_2611043064025758819_n.jpg?stp=dst-jpg_p640x640&_nc_cat=100&ccb=1-5&_nc_sid=e3f864&_nc_ohc=5RWFBpNEOAcAX-jIIOH&tn=mYHdtZjXt0zNTvbb&_nc_ht=scontent.fcgh17-1.fna&oh=00_AT-0yokd_V_ueM2ZN3wQij0gorIe0Ms5bJG8kWQDsjp1Kg&oe=62727F00);
+  background-position: center;
+  background-size: cover;
+}
+
+.welcome-section > p {
+  font-size: 3rem;
+  font-weight: bolder;
+  font-style: italic;
+  color: var(--main-white);
+  background: #809bbdbf;
+  border-radius: 10px;
+}
+
+/* Projects section */
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: var(--main-blue);
+}
+
+.projects-section-header {
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--main-gray);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.code {
+  color: var(--main-gray);
+  transition: color 0.3s ease-out;
+}
+
+.project:hover .code {
+  color: #ff7f50;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+  background: var(--main-red);
+}
+
+.btn-show-all:hover > i {
+  transform: translateX(2px);
+}
+
+.btn-show-all > i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+/* Contact section */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: var(--main-gray);
+}
+
+.contact-section-header > h2 {
+  font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+}
+
+.contact-section-header > p {
+  font-style: italic;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+/* Footer */
+
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: var(--main-gray);
+  border-top: 4px solid var(--main-red);
+}
+
+footer > p {
+  margin: 2rem;
+}
+
+footer i {
+  vertical-align: middle;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+</style>
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+  crossorigin="anonymous"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
+  rel="stylesheet"
+/>
+<!-- START NAV -->
+
+<nav id="navbar" class="nav">
+  <ul class="nav-list">
+    <li>
+      <a href="#welcome-section">About</a>
+    </li>
+    <li>
+      <a href="#projects">Work</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- END NAV -->
+
+<!-- START WELCOME SECTION -->
+
+<section id="welcome-section" class="welcome-section">
+  <h1>João Urra</h1>
+  <p>a programmer therapist</p>
+</section>
+
+<!-- END WELCOME SECTION -->
+
+<!-- START PROJECTS SECTION -->
+
+<section id="projects" class="projects-section">
+  <h2 class="projects-section-header">These are some of my projects</h2>
+
+  <div class="projects-grid">
+        <a
+      href="http://www.alltripsturismo.com.br/"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://scontent.fcgh17-1.fna.fbcdn.net/v/t39.30808-6/271276687_10224803419766761_1634655189028905782_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=0debeb&_nc_ohc=IcTnpPSPnOgAX_WBYt1&_nc_ht=scontent.fcgh17-1.fna&oh=00_AT_67CQbtqOpevh1N3rTYHVpQ0DyjJctadjSFOZeRsLXwA&oe=62533213"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        All Trips Turismo
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://codepen.io/joaourra/pen/VwMQrBG"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://scontent.fcgh17-1.fna.fbcdn.net/v/t39.30808-6/271175048_10224803419246748_2573121408195626237_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=0debeb&_nc_ohc=E5hFE00DtNYAX9Cdg1-&tn=mYHdtZjXt0zNTvbb&_nc_ht=scontent.fcgh17-1.fna&oh=00_AT_EaUMilCs-jYtBey5W_Ub94G5oUq2kYWAPAFOEBJ7XCA&oe=6253FD62"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Tribute Page
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://github.com/joaourra/estudos/blob/master/vba/vba-sbc.cls"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://scontent.fcgh17-1.fna.fbcdn.net/v/t39.30808-6/271178715_10224803450327525_8262952334098620093_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=0debeb&_nc_ohc=4M9j0Msvn90AX9-nThw&_nc_ht=scontent.fcgh17-1.fna&oh=00_AT_MFOr02GjxqBCw7cB1mZHjo3Cb8GamTqFVxE8oOCgC2w&oe=62525610"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        SBC Database - VBA Programming
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://codepen.io/joaourra/pen/abLqgOm"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://scontent.fcgh17-1.fna.fbcdn.net/v/t39.30808-6/271235489_10224803418806737_3963722047750688226_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=0debeb&_nc_ohc=Jy_rIlo8ld8AX9lk04v&_nc_ht=scontent.fcgh17-1.fna&oh=00_AT9PA80ksA9lll5ibupP1XFd1z3FkJCtat0z76adt2NQeQ&oe=625316EE"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Documentation VBA
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://codepen.io/joaourra/pen/VwMQOOW"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://scontent.fcgh17-1.fna.fbcdn.net/v/t39.30808-6/271207547_10224803418846738_8033807415178036167_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=0debeb&_nc_ohc=oumPI-_FOMcAX_-34ys&_nc_ht=scontent.fcgh17-1.fna&oh=00_AT9tQYyFISgEpCIV2IuXjJfDj4fposHlDrtmcMpHfqcfrA&oe=62526734"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Landing Page
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://codepen.io/joaourra/pen/OJxQOBK"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://scontent.fcgh17-1.fna.fbcdn.net/v/t39.30808-6/271279424_10224803419366751_4381840332556353036_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=0debeb&_nc_ohc=hpqJ4regqhgAX8lWUh-&_nc_oc=AQlUuaofvz13-0hxKoqPNV7RP-RJEDCCgNAaTM5uAoA-msJJhHuOBeiH90WLoMb-36mPesBEbWiKUm3nqFPmpPJY&_nc_ht=scontent.fcgh17-1.fna&oh=00_AT-aMaBeSDyvZq_nKaX8jeqwrA3grt-A5JuxqxkiUAx5jA&oe=62534125"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Survey Form
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    
+  </div>
+
+  <a
+    href="https://wa.me/5511946044474"
+    class="btn btn-show-all"
+    target="_blank"
+    >Show all<i class="fas fa-chevron-right"></i
+  ></a>
+</section>
+
+<!-- END PROJECTS SECTION -->
+
+<!-- START CONTACT SECTION -->
+
+<section id="contact" class="contact-section">
+  <div class="contact-section-header">
+    <h2>Let's work together...</h2>
+    <p>How do you take your coffee?</p>
+  </div>
+  <div class="contact-links">
+    <a
+      href="https://www.facebook.com/JPLUrra/"
+      target="_blank"
+      class="btn contact-details"
+      ><i class="fab fa-facebook-square"></i> Facebook</a
+    >
+    <a
+      id="profile-link"
+      href="https://github.com/joaourra"
+      target="_blank"
+      class="btn contact-details"
+      ><i class="fab fa-github"></i> GitHub</a
+    >
+    <a href="mailto:jplurra@gmail.com" class="btn contact-details"
+      ><i class="fas fa-at"></i> Send a mail</a
+    >
+    <a href="https://wa.me/5511946044474" class="btn contact-details"
+      ><i class="fa fa-whatsapp"></i> Call me</a
+    >
+  </div>
+</section>
+
+<!-- END CONTACT SECTION -->
+
+<!-- START FOOTER SECTION -->
+
+<footer>
+  <p>
+    &copy; Created for
+    <a href="https://wa.me/5511946044474" target="_blank"
+      >João Urra </a>2022 <i class="fab fa-free-code-camp"></i
+    >
+  </p>
+</footer>
+
+<!-- END FOOTER SECTION -->

@@ -1,0 +1,362 @@
+<style>
+html,
+body {
+  min-width: 290px;
+  color: #4d4e53;
+  background-color: #ffffff;
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#navbar {
+  position: fixed;
+  min-width: 290px;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+
+header {
+  color: black;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: thin;
+}
+
+#main-doc header {
+  text-align: left;
+  margin: 0px;
+}
+
+#navbar ul {
+  height: 88%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#navbar li {
+  color: #4d4e53;
+  border-top: 1px solid;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+#navbar a {
+  display: block;
+  padding: 10px 30px;
+  color: #4d4e53;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#main-doc {
+  position: absolute;
+  margin-left: 310px;
+  padding: 20px;
+  margin-bottom: 110px;
+}
+
+section article {
+  color: #4d4e53;
+  margin: 15px;
+  font-size: 0.96em;
+}
+
+section li {
+  margin: 15px 0px 0px 20px;
+}
+
+code {
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #f7f7f7;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 815px) {
+  /* For mobile phones: */
+  #navbar ul {
+    border: 1px solid;
+    height: 207px;
+  }
+
+  #navbar {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 275px;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #main-doc {
+    margin-left: -10px;
+  }
+
+  code {
+    margin-left: -20px;
+    width: 100%;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 45px;
+    min-width: 233px;
+  }
+}
+
+</style>
+<nav id="navbar">
+  <header>VBA Documentation</header>
+  <ul>
+    <li><a class="nav-link" href="#Introdução">Introdução</a></li>
+    <li>
+      <a class="nav-link" href="#Propriedades,_métodos_e_funções_específicos_do_idioma"
+        >Propriedades, métodos e funções específicos do idioma</a
+      >
+    </li>
+    <li><a class="nav-link" href="#Método_Application.InputBox">Método Application.InputBox</a></li>
+    <li><a class="nav-link" href="#Método_WorksheetFunction.Var">Método WorksheetFunction.Var</a></li>
+    <li>
+      <a class="nav-link" href="#Método_Chart.Copy">Método Chart.Copy</a>
+    </li>
+    <li><a class="nav-link" href="#Método_Chart.Select">Método Chart.Select</a></li>
+    <li><a class="nav-link" href="#Usar_Instruções_If...Then...Else">Usar Instruções If...Then...Else</a></li>
+    <li><a class="nav-link" href="#Constantes">Constantes</a></li>
+    <li><a class="nav-link" href="#Propriedade_Count">Propriedade Count</a></li>
+    <li><a class="nav-link" href="#Referencia">Referencia</a></li>
+  </ul>
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="Introdução">
+    <header>Introdução</header>
+    <article>
+      <p>
+        Esta seção apresenta conceitos importantes para o desenvolvimento de soluções personalizadas para o Excel.
+      </p>
+
+      <ul>
+        <li>
+  Sobre o objeto de modelo do PowerPivot no Excel
+
+        </li>
+        <li>
+Sobre a coautoria
+
+        </li>
+        <li>Propriedades, métodos e funções específicos do idioma</li>
+        <li>OLE DB para propriedades OLAP usadas pelo Excel
+</li>
+        <li>Programar para a interface de documento único no Excel
+</li>
+        <li>Funções
+</li>
+        <li>Pastas de trabalho e planilhas
+</li>
+        <li>Células e intervalos
+</li>
+        <li>Controles, caixas de diálogo e formulários
+</li>
+        <li>Eventos, funções de planilha e formas
+</li>
+        <li>Trabalhar com outros aplicativos
+</li>
+        <li>Minigráficos</li>
+        <li>Desempenho do Excel
+</li>
+      
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="Propriedades,_métodos_e_funções_específicos_do_idioma">
+    <header>Propriedades, métodos e funções específicos do idioma</header>
+    <article>
+      <p>O modelo de objeto do VBA (Visual Basic for Applications) do Excel possui elementos específicos de idioma para uso com idiomas asiáticos e escritos da direita para a esquerda.</p>
+
+      <ul>
+        <li>
+          Método
+        </li>
+        <li>Objetos</li>
+        <li>
+          Comentarios
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="Método_Application.InputBox">
+    <header>Método Application.InputBox</header>
+    <article>
+      Use InputBox para exibir uma caixa de diálogo simples, de modo que você possa inserir informações a serem usadas em uma macro. A caixa de diálogo tem um botão OK e um botão Cancelar. Se você selecionar o botão OK, InputBox retorna o valor inserido na caixa de diálogo. Se você selecionar o botão Cancel, InputBox retorna False.
+      <code
+        >Set myRange = Application.InputBox(prompt := "Sample", type := 8)
+      </code>
+
+      Se você não usar a instrução Set, a variável será definida como o valor no intervalo, em vez do próprio objeto Range.
+    </article>
+  </section>
+  <section class="main-section" id="Método_WorksheetFunction.Var">
+    <header>Método WorksheetFunction.Var</header>
+    <p>
+   Var supõe que seus argumentos são uma amostra da população. Se seus dados representarem toda a população, calcule a variação usando VarP.
+    </p>
+    <p>
+      Os argumentos podem ser números, ou nomes, matrizes ou referências que contenham números.
+    </p>
+    <p>
+     Os valores lógicos e as representações de números por extenso que você digita diretamente na lista de argumentos são contados.
+    </p>
+  </section>
+  <section class="main-section" id="Método_Chart.Copy">
+    <header>Método Chart.Copy</header>
+    <article>
+      Copia a planilha para outro local na pasta de trabalho.
+      <p>
+        Exemplo<code>Worksheets("Sheet1").Copy After:=Worksheets("Sheet3")</code> ok
+      </p>
+      <p>
+        dessa forma o valor de x será 42 <code>x = 42.</code> Cuidado esta forma estaria incorreta em outra slinguagens
+      </p>
+      <p>
+        Para colar<code> Worksheets("Sheet1").Range("B1:B5").Copy 
+Charts("Chart1").Paste</code> 
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Método_Chart.Select">
+    <header>Método Chart.Select</header>
+    <article>
+      <p>
+       Uma variável que representa um objeto Chart.
+      </p>
+
+      <p>
+       Para selecionar uma célula ou um intervalo de células, use o método Select. Para tornar uma única célula a célula ativa, use o método Activate.
+      </p>
+      <code>Sub FixDate() 
+ myDate = #2/13/95# 
+ If myDate < Now Then myDate = Now 
+End Sub</code>
+      <p>
+       Para executar mais de uma linha de código, use a sintaxe de várias linhas. Essa sintaxe inclui a instrução End If, conforme mostrado no exemplo a seguir.
+      </p>
+
+      <code
+        >Sub AlertUser(value as Long) 
+ If value = 0 Then 
+ AlertLabel.ForeColor = "Red" 
+ AlertLabel.Font.Bold = True 
+ AlertLabel.Font.Italic = True 
+ End If 
+End Sub</code
+      >
+    </article>
+  </section>
+  <section class="main-section" id="Usar_Instruções_If...Then...Else">
+    <header>Usar Instruções If...Then...Else
+</header>
+    <article>
+      <p>
+       Você pode usar a instrução If...Then...Else para executar uma instrução específica ou um bloco de instruções, dependendo do valor de uma condição. As instruções If...Then...Else podem ser aninhadas em todos os níveis necessários.
+      </p>
+
+      <p>
+       No entanto, para facilitar a leitura, convém usar uma instrução Select Case em vez de vários níveis de instruções If...Then...Else aninhadas.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Constantes">
+    <header>Constantes</header>
+    <article>
+      <p>
+        Esta enumeração agrupa as constantes usadas com vários métodos do Excel.
+      </p>
+
+      <code>xlTopToBottom	1	Top To Bottom</code>
+      <p>
+       O exemplo a seguir cria uma fórmula na célula A1 fazendo referência a células vazias e usa Item (índice), onde index identifica o tipo de erro, para exibir uma mensagem informando a situação.
+      </p>
+
+      <code
+        >Sub CheckEmptyCells() 
+ 
+ Dim rngFormula As Range 
+ Set rngFormula = Application.Range("A1") 
+ 
+ ' Place a formula referencing empty cells. 
+ Range("A1").Formula = "=A2+A3" 
+ Application.ErrorCheckingOptions.EmptyCellReferences = True 
+ 
+ ' Perform check to see if EmptyCellReferences check is on. 
+ If rngFormula.Errors.Item(xlEmptyCellReferences).Value = True Then 
+ MsgBox "The empty cell references error checking feature is enabled." 
+ Else 
+ MsgBox "The empty cell references error checking feature is not on." 
+ End If 
+ 
+End Sub</code
+      >
+      Use a propriedade ErrorBars do objeto Series para retornar o objeto ErrorBars. O exemplo a seguir a turns on error bars for series one in embedded chart one, and then sets the end style for the error bars.
+      <code
+        >Worksheets("sheet1").ChartObjects(1).Activate 
+ActiveChart.SeriesCollection(1).HasErrorBars = True 
+ActiveChart.SeriesCollection(1).ErrorBars.EndStyle = xlNoCap</code
+      >
+    </article>
+  </section>
+  <section class="main-section" id="Propriedade_Count">
+    <header>Propriedade Count</header>
+    <article>
+      <p>Retorna o número de objetos na coleção especificada. Long somente leitura.
+
+</p>
+      
+     Este exemplo exibe o número de grupos de gráficos do gráfico.
+
+      <code>MsgBox "The chart contains " & _ 
+ myChart.ChartGroups.Count & _ 
+ " chart groups."
+      </code>
+
+    </article>
+  </section>
+
+  <section class="main-section" id="Referencia">
+    <header>Referencia</header>
+    <article>
+      <ul>
+        <li>
+          Todas as Referencias foram tiradas desse link
+          <a
+            href="https://docs.microsoft.com/pt-br/office/vba/api/overview/"
+            target="_blank"
+            >VBA Office</a
+          >
+        </li>
+      </ul>
+    </article>
+  </section>
+</main>
