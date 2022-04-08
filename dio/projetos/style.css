@@ -1,0 +1,13 @@
+#title, .subtitle, .post_title{
+	color: blue;
+}
+.post_title{
+	font-size: 16px;
+	font-style: italic;
+}
+.linha {
+				font-weight:bold;
+				color: black;
+				padding-left: 10px;
+				line-height: 50px;
+			}
