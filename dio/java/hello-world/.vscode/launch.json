@@ -1,0 +1,43 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch PrimeiroPrograma",
+            "request": "launch",
+            "mainClass": "PrimeiroPrograma",
+            "projectName": "PrimeiroProgramaJava"
+        },
+        {
+            "type": "java",
+            "name": "Launch PrimeiroProgramaExercicio",
+            "request": "launch",
+            "mainClass": "com.dio.PrimeiroProgramaExercicio",
+            "projectName": "PrimeiroProgramaJava"
+        },
+        {
+            "type": "java",
+            "name": "Launch PrimeiroPrograma(1)",
+            "request": "launch",
+            "mainClass": "PrimeiroPrograma",
+            "projectName": "hello-world_19f08257"
+        }
+    ]
+}
