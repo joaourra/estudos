@@ -880,6 +880,19 @@ public class minhaClasse {
         
         int[] n = {a, b, c, d, e};
         
+      // remover e adicionar comentario, SHIFT ALT A (no vs)
+
+/*  
+  int[] n = new int[5]
+  for(int i = 0; i < n.length; i++)
+  int count = 0, numero;
+  do {
+    numero = leitor.nextInt();
+    n.push(numero);
+    count++;
+  } while (count<5); */
+
+
 //continue a solução
         for (int i : n){
           
